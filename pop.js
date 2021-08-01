@@ -4,7 +4,7 @@ var loadHtml = `<img style="width: 18px; height: 18px;" src="loading.gif" alt=""
 window.onload = () => {
     
 
-    fetch("https://sa2.vinlp.com/api/v1.0/review?search=&limit=1000000&order=asc&offset=0&type=2&cat=all&revstatus=all", {
+    fetch("https://sa3.vinlp.com/api/v1.0/review?search=&limit=1000000&order=asc&offset=0&type=2&cat=all&revstatus=all", {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "en-US,en;q=0.9",
@@ -30,7 +30,7 @@ window.onload = () => {
 
 
 
-    fetch("https://sa2.vinlp.com/api/v1.0/annotation/listing?user_id=97&limit=20000&offset=0", {
+    fetch("https://sa3.vinlp.com/api/v1.0/annotation/listing?user_id=97&limit=20000&offset=0", {
         "headers": {
             "accept": "*/*",
             "accept-language": "en-US,en;q=0.9",

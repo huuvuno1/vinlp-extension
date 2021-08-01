@@ -13,7 +13,7 @@
     "description": "Count file has checked",
     "content_scripts": [{
         "matches": [
-            "https://sa2.vinlp.com/*",
+            "https://sa3.vinlp.com/*",
             "https://www.youtube.com/*"
         ],
         "css": [

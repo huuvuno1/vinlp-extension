@@ -16,8 +16,22 @@ if (window.location.pathname == "/annotation") {
     parent.appendChild(boot);
 
     document.querySelector('#save-for-review').addEventListener('click', () => {
-        let fileNumber = localStorage.getItem('fileNumber');
-        localStorage.setItem('fileNumber', parseInt(fileNumber) + 1);
+        let listAssign = document.querySelectorAll('.seg');
+        let _time = 0;
+        listAssign.forEach((e) => {
+            let timeStart = e.querySelector('td:nth-child(1)').innerText;
+            let timeEnd = e.querySelector('td:nth-child(2)').innerText;
+            let _timeStart = new Date("1-1-2020 00:" + timeStart);
+            let _timeEnd = new Date("1-1-2020 00:" + timeEnd);
+            _time += _timeEnd.getSeconds() - _timeStart.getSeconds();
+        })
+        chrome.extension.sendMessage({
+            type: 'done_assign', 
+            data: {
+                time: _time
+            }
+        });
+    
     })
     
 }
