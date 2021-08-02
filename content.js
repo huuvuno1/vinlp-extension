@@ -36,27 +36,21 @@ if (window.location.pathname == "/annotation") {
     
 }
 
-
-document.querySelector('body').addEventListener('keydown', (e) => {
+// edit event ở đây
+document.querySelector('body').addEventListener('keypress', (e) => {
     if (e.key == "Escape") {
         var esc = document.querySelector("#close-segment-form");
         esc.click();
         esc = document.querySelector("#next-without-save");
         esc.click();
     }
-
-    if (e.key == 3) {
-        document.querySelector("#main-segment-form > div > center:nth-child(1) > button.btnvin").click();
-    }
-
-    if (e.key == 4) {
-        document.querySelector('#toggle-audio-btn').click();
-    }
-
-    if (e.key == 1) {
-        var audio = document.querySelector('#waveform > audio');
-        audio.currentTime -= 3;
-    }
+    console.log(e.key)
+    if (e.key == 'S') {
+        document.querySelector('#save-segment').click();
+    } 
+    if (e.key == 'F') {
+        document.querySelector('button.btnvin').click();
+    } 
 })
 
 
