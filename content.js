@@ -35,7 +35,6 @@ if (window.location.pathname == "/annotation") {
     })
     
 }
-
 document.querySelector('body').addEventListener('keydown', (e) => {
         if (e.key == "Escape") {
             var esc = document.querySelector("#close-segment-form");
@@ -50,9 +49,11 @@ document.querySelector('body').addEventListener('keydown', (e) => {
 document.querySelector('body').addEventListener('keypress', (e) => {
     
     if (e.key == 'S') {
+        e.preventDefault();
         document.querySelector('#save-segment').click();
     } 
     if (e.key == 'F') {
+        e.preventDefault();
         document.querySelector('button.btnvin').click();
     } 
 })

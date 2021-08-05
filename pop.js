@@ -49,7 +49,7 @@ window.onload = () => {
         "credentials": "include"
         }).then(response => response.json())
         .then(data => {
-            console.log(data.data)
+
             let file_accept = 0, file_reject = 0, file_untested = 0;
             for (d of data.data) {
                 if (d.status == 11)
@@ -62,6 +62,11 @@ window.onload = () => {
             document.getElementById('file_accept').innerText = file_accept;
             document.getElementById('file_reject').innerText = file_reject;
             document.getElementById('file_untested').innerText = file_untested;
+
+
+            // count file and calc money
+            document.getElementById("total_file").innerText = data.data.length;
+            document.getElementById("total_time").innerText = getTime(data.data)
         });
 
 
@@ -85,4 +90,14 @@ window.onload = () => {
 
 function search(value) {
     console.log(value)
+}
+function getTime(data) {
+    var time = 0;
+    data.forEach(e => {
+        let segments = JSON.parse(e.segments);
+        segments.forEach(segment => {
+            time += parseFloat(segment.end) - parseFloat(segment.start);
+        })
+    });
+    return (time/3600).toFixed(2);
 }
